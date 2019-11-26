@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TurkTicaretCRM.Core", "Turk
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TurkTicaretCRM.TT.Entities", "TurkTicaretCRM.TT.Entities\TurkTicaretCRM.TT.Entities.csproj", "{B16EC4AB-9640-4CED-8B4B-F72DD9CC6FF5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TurkTicaretCRM.TT.Data", "TurkTicaretCRM.TT.Data\TurkTicaretCRM.TT.Data.csproj", "{1554D86F-892D-4E86-BD27-C68AEE74305B}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TurkTicaretCRM.TT.Bussiness", "TurkTicaretCRM.TT.Bussiness\TurkTicaretCRM.TT.Bussiness.csproj", "{9294D320-C2E0-49D4-A5AC-5B14CADF8D85}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurkTicaretCRM.TT.Mvc", "TurkTicaretCRM.TT.Mvc\TurkTicaretCRM.TT.Mvc.csproj", "{AFEC2066-4C28-4FAF-A75C-44E053F346E5}"
@@ -41,6 +39,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "TurkTicaretCRM.TT.WcfServic
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TurkTicaretCRM.TT.DataAccess", "TurkTicaretCRM.TT.DataAccess\TurkTicaretCRM.TT.DataAccess.csproj", "{1B3D3623-200E-4643-AF96-71BB89DCC710}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,10 +55,6 @@ Global
 		{B16EC4AB-9640-4CED-8B4B-F72DD9CC6FF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B16EC4AB-9640-4CED-8B4B-F72DD9CC6FF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B16EC4AB-9640-4CED-8B4B-F72DD9CC6FF5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1554D86F-892D-4E86-BD27-C68AEE74305B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1554D86F-892D-4E86-BD27-C68AEE74305B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1554D86F-892D-4E86-BD27-C68AEE74305B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1554D86F-892D-4E86-BD27-C68AEE74305B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9294D320-C2E0-49D4-A5AC-5B14CADF8D85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9294D320-C2E0-49D4-A5AC-5B14CADF8D85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9294D320-C2E0-49D4-A5AC-5B14CADF8D85}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -83,6 +79,10 @@ Global
 		{CE0F6FDF-7866-478D-8150-00DBC4AD5BFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE0F6FDF-7866-478D-8150-00DBC4AD5BFC}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{CE0F6FDF-7866-478D-8150-00DBC4AD5BFC}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{1B3D3623-200E-4643-AF96-71BB89DCC710}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B3D3623-200E-4643-AF96-71BB89DCC710}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B3D3623-200E-4643-AF96-71BB89DCC710}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B3D3623-200E-4643-AF96-71BB89DCC710}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
