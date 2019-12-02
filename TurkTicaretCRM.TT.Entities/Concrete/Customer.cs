@@ -7,7 +7,7 @@ namespace TurkTicaretCRM.TT.Entities.Concrete
 {
     public class Customer:IEntity
     {
-        //Added something to test development branch creation.
+        
         public int CustomerId { get; set; }
         public string CustomerName { get; set; }
         public string CustomerSurname { get; set; }

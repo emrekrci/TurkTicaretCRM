@@ -21,5 +21,12 @@ namespace TurkTicaretCRM.DataAccess.Test.EntityFrameworkTest
 
             Assert.AreEqual(1, result.Count);
         }
+
+        public void Get_AlL_With_Parameter()
+        {
+            EfCustomerDal customer = new EfCustomerDal();
+            var resukt = customer.GetList(p => p.CustomerName == "Emre");
+            Assert.AreEqual(1, resukt.Count);
+        }
     }
 }
