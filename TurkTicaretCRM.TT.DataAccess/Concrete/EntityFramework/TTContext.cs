@@ -9,15 +9,15 @@ namespace TurkTicaretCRM.TT.DataAccess.Concrete.EntityFramework
 {
     public class TTContext:DbContext
     {
-        public TTContext()
+        public TTContext() :base()
         {
-            Database.SetInitializer<TTContext>(null);
+            //Database.SetInitializer<TTContext>(null);
         }
         public DbSet<Customer> Customers { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Configurations.Add(new CustomerMap());
-        }
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Configurations.Add(new CustomerMap());
+        //}
     }
 }

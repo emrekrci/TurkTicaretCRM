@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace TurkTicaretCRM.Core.DataAccess.NHibernate
 {
-    public class NhEntityRepositoryBase<TEntity>:IEntitiyRepository<TEntity>
+    public class NhEntityRepositoryBase<TEntity>:IEntityRepository<TEntity>
         where TEntity:class, IEntity, new()
     {
         NHibernateHelper _nHibernateHelper;

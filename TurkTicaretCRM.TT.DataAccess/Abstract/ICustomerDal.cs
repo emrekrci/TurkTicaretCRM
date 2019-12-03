@@ -6,7 +6,7 @@ using TurkTicaretCRM.TT.Entities.Concrete;
 
 namespace TurkTicaretCRM.TT.DataAccess.Abstract
 {
-    public interface ICustomerDal:IEntitiyRepository<Customer>
+    public interface ICustomerDal:IEntityRepository<Customer>
     {
     }
 }
