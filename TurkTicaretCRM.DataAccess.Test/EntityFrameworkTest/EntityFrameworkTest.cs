@@ -14,19 +14,46 @@ namespace TurkTicaretCRM.DataAccess.Test.EntityFrameworkTest
     public class EntityFrameworkTest
     {
         [TestMethod]
-       public void Get_All_Returns_All_Products()
+        public void Add_Customer()
         {
-            EfCustomerDal customer = new EfCustomerDal();
-            var result = customer.GetList();
-
-            Assert.AreEqual(1, result.Count);
+            EfCustomerDal customerDal = new EfCustomerDal();
+            Customer customer = new Customer
+            {
+                CustomerName = "Emre",
+                CustomerSurname = "Kırcı",
+                CustomerAddress = "Gazi kemal mahallesi muhtar şevki sokak babaeski/kırklareli",
+                CustomerMail = "emrekrci@hotmail.com",
+                CustomerPhone = "5375022611",
+                RegistrationDate = DateTime.Now,
+                UpdateDate = DateTime.Now
+            };
+            var result = customerDal.Add(customer);
+            Assert.IsNotNull(result);
+        }
+        [TestMethod]
+        public void Add_Debit()
+        {
+            EfDebitDal debitDal = new EfDebitDal();
+            Debit debit = new Debit { DebitReason = "Kömür" };
+            var result = debitDal.Add(debit);
+            Assert.IsNotNull(result);
         }
 
-        public void Get_AlL_With_Parameter()
+        [TestMethod]
+        public void Add_CustomerDebit()
         {
-            EfCustomerDal customer = new EfCustomerDal();
-            var resukt = customer.GetList(p => p.CustomerName == "Emre");
-            Assert.AreEqual(1, resukt.Count);
+            EfCustomerDebitDal customerDebitDal = new EfCustomerDebitDal();
+            CustomerDebit customerDebit = new CustomerDebit
+            {
+                CustomerDebitStatus = true,
+                CustomerID = 1,
+                DebitID = 1,
+                DebitTotal = 450,
+                RegistrationDate = DateTime.Now,
+                UpdateDate = DateTime.Now
+            };
+            var result = customerDebitDal.Add(customerDebit);
+            Assert.IsNotNull(result);
         }
     }
 }

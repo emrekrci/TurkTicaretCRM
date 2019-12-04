@@ -10,7 +10,7 @@ namespace TurkTicaretCRM.TT.Bussiness.ValidationRules.FluentValidation
     {
         public CustomerValidatior()
         {
-            RuleFor(p => p.CustomerId).NotEmpty();
+            RuleFor(p => p.CustomerID).NotEmpty();
             RuleFor(p => p.CustomerName).NotEmpty();
             RuleFor(p => p.CustomerSurname).NotEmpty();
             RuleFor(p => p.CustomerAddress).NotEmpty();

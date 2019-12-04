@@ -1,12 +1,26 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net472</TargetFramework>
+    <TargetFramework>net461</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\201912042211236_CustmerDebitUpdate.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201912042211236_CustmerDebitUpdate.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\TurkTicaretCRM.Core\TurkTicaretCRM.Core.csproj" />
     <ProjectReference Include="..\TurkTicaretCRM.TT.Entities\TurkTicaretCRM.TT.Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Concrete\EntityFramework\Mappings\" />
   </ItemGroup>
 
 </Project>

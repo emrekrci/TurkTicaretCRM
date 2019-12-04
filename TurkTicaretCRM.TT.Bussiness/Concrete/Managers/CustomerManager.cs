@@ -31,7 +31,7 @@ namespace TurkTicaretCRM.TT.Bussiness.Concrete.Managers
 
         public Customer GetById(int id)
         {
-            return _customerDal.Get(c => c.CustomerId == id);
+            return _customerDal.Get(c => c.CustomerID == id);
         }
     }
 }
