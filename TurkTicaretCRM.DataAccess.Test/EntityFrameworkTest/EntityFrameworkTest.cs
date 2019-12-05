@@ -34,7 +34,7 @@ namespace TurkTicaretCRM.DataAccess.Test.EntityFrameworkTest
         public void Add_Debit()
         {
             EfDebitDal debitDal = new EfDebitDal();
-            Debit debit = new Debit { DebitReason = "Kömür" };
+            Debit debit = new Debit { DebitReason = "Çimento" };
             var result = debitDal.Add(debit);
             Assert.IsNotNull(result);
         }
@@ -54,6 +54,32 @@ namespace TurkTicaretCRM.DataAccess.Test.EntityFrameworkTest
             };
             var result = customerDebitDal.Add(customerDebit);
             Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void Add_DebitActivity()
+        {
+            EfDebitActivityDal debitActivityDal = new EfDebitActivityDal();
+            DebitActivity debitActivity = new DebitActivity
+            {
+                ActivityDate = DateTime.Now,
+                Comment = "100 lira alındı",
+                CustomerDebitID = 1,
+                DiscountTotal = 100
+            };
+            var result = debitActivityDal.Add(debitActivity);
+        }
+
+        [TestMethod]
+        public void UpdateDiscoutn()
+        {
+            int id = 1;
+            int discTotal = 100;
+            EfCustomerDebitDal customerDbitdal = new EfCustomerDebitDal();
+            var customer = customerDbitdal.Get(x => x.CustomerDebitID == id);
+            customer.DebitTotal = customer.DebitTotal - discTotal;
+            var resukt = customerDbitdal.Update(customer);
+            Assert.IsNotNull(resukt);
         }
     }
 }
