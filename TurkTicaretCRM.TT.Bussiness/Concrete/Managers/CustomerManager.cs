@@ -16,11 +16,13 @@ namespace TurkTicaretCRM.TT.Bussiness.Concrete.Managers
         {
             _customerDal = customerDal;
         }
+        public CustomerManager()
+        {
 
+        }
         
         public Customer Add(Customer customer)
         {
-            ValidatorTool.FluentValidate(new CustomerValidatior(), customer);
             return _customerDal.Add(customer);
         }
 

@@ -6,7 +6,7 @@ using TurkTicaretCRM.Core.Entities;
 
 namespace TurkTicaretCRM.Core.DataAccess
 {
-    interface IQueryableRepository<T> where T:class, IEntity, new()
+    public interface IQueryableRepository<T> where T:class, IEntity, new()
     {
         IQueryable<T> Table { get; }
     }
