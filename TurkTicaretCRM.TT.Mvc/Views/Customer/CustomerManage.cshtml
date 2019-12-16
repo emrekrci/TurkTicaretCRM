@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "CustomerManage";
+}
+
+<div class="row">
+            <!--AddCustomer Button Here-->
+<div class="card-columns" data-toggle="modal" data-target="#customerModal">
+                <a href="#" class="btn btn-success btn-icon-split">
+                    <span class="icon text-white-50">
+                        <i class="fas fa-flag"></i>
+                    </span>
+                    <span class="text">Müşteri Ekle</span>
+                </a>
+            </div>
+            <!--Customer Table Here-->
+<div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Müşteriler Tablosu</h6>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                        
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                                        <thead>
+                                            <tr role="row">
+                                                <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 68px;">İsim</th>
+                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 93px;">Soyisim</th>
+                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 52px;">Adres</th>
+                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 31px;">Telefon</th>
+                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 68px;">Kayıt Tarihi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--AddCustomer Modal-->
+<div class="modal fade" id="customerModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Müşteri Ekle</h4>
+            </div>
+            <div class="modal-body">
+                    <div class="form-group"><input class="form-control form-control-user" placeholder="İsim Giriniz..." required /></div>
+                    <div class="form-group"><input class="form-control form-control-user" placeholder="Soyisim Giriniz..." required /></div>
+                    <div class="form-group"><input class="form-control form-control-user" placeholder="Adres Giriniz" required /></div>
+                    <div class="form-group"><input class="form-control form-control-user" placeholder="Telefon Numarası Giriniz" required /></div>
+                    <div class="form-group"><input class="form-control form-control-user" placeholder="Email Adresi Giriniz" /></div>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Ekle</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Kapat</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    debugger;
+    $("#dataTable").ready(function () {
+        $.ajax({
+            url:"@Url.Action("GetAllCustomers","Customer")",
+            success: function (data) {
+                console.log(data);
+                debugger;
+                $("#dataTable").DataTable({
+                    data: data,
+                    columns: [
+                        { data: 'CustomerName' },
+                        { data: 'CustomerSurname' },
+                        { data: 'CustomerPhone' },
+                        { data: 'CustomerAddress' },
+                        { data: 'RegistrationDate' }
+                    ]
+                })
+            },
+            type: "GET",
+            dataType: "json"
+        });
+    })
+</script>
