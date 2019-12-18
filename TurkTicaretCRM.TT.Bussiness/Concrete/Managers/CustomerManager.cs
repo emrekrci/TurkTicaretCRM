@@ -35,5 +35,31 @@ namespace TurkTicaretCRM.TT.Bussiness.Concrete.Managers
         {
             return _customerDal.Get(c => c.CustomerID == id);
         }
+
+        public bool Delete(Customer customer)
+        {
+            try
+            {
+                _customerDal.Delete(customer);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool DeleteById(int id)
+        {
+            try
+            {
+                _customerDal.DeleteById(x => x.CustomerID == id);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

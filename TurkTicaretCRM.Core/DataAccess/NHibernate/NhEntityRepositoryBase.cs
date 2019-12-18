@@ -35,6 +35,11 @@ namespace TurkTicaretCRM.Core.DataAccess.NHibernate
             }
         }
 
+        public void DeleteById(Expression<Func<TEntity, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public TEntity Get(Expression<Func<TEntity, bool>> filter = null)
         {
             using (var session = _nHibernateHelper.OpenSession())

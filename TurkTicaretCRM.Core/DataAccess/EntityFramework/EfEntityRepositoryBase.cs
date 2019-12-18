@@ -33,6 +33,16 @@ namespace TurkTicaretCRM.Core.DataAccess.EntityFramework
             }
         }
 
+        public void DeleteById(Expression<Func<TEntity, bool>> filter = null)
+        {
+            using (var context = new TContext())
+            {
+                var delete = context.Entry<TEntity>(context.Set<TEntity>().SingleOrDefault(filter)).State = EntityState.Deleted;
+                context.SaveChanges();
+            }
+
+        }
+
         public TEntity Get(Expression<Func<TEntity, bool>> filter = null)
         {
             using (var context = new TContext())

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TurkTicaretCRM.TT.Bussiness.Abstract;
+using TurkTicaretCRM.TT.Entities.Concrete;
 
 namespace TurkTicaretCRM.TT.Mvc.Controllers
 {
@@ -29,6 +30,23 @@ namespace TurkTicaretCRM.TT.Mvc.Controllers
         {
             var result = _customerService.GetAll();
             return Json(result, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        public ActionResult AddCustomer(Customer customer)
+        {
+            customer.RegistrationDate = DateTime.Now;
+            customer.UpdateDate = DateTime.Now;
+            var result = _customerService.Add(customer);
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        public ActionResult DeleteCustomer(string id)
+        {
+            
+                var result = _customerService.DeleteById(int.Parse(id));
+                return Json(result);
+            
+            
         }
     }
 }

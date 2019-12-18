@@ -10,5 +10,8 @@ namespace TurkTicaretCRM.TT.Bussiness.Abstract
         List<Customer> GetAll();
         Customer GetById(int id);
         Customer Add(Customer customer);
+
+        bool Delete(Customer customer);
+        bool DeleteById(int id);
     }
 }
