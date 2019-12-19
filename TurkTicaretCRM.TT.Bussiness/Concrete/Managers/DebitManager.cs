@@ -17,6 +17,16 @@ namespace TurkTicaretCRM.TT.Bussiness.Concrete.Managers
             _debitDal = debitDal;
         }
 
+        public Debit Add(Debit debit)
+        {
+            return _debitDal.Add(debit);
+        }
+
+        public List<Debit> GetAll()
+        {
+            return _debitDal.GetList();
+        }
+
         public Debit GetById(int id)
         {
             return _debitDal.Get(x => x.DebitID == id);

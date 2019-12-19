@@ -10,5 +10,7 @@ namespace TurkTicaretCRM.TT.Bussiness.Abstract
     public interface IDebitService
     {
         Debit GetById(int id);
+        List<Debit> GetAll();
+        Debit Add(Debit debit);
     }
 }

@@ -5,14 +5,26 @@
 
 <div class="container-fluid">
             <!--AddCustomer Button Here-->
-            <div class="card-columns" data-toggle="modal" data-target="#customerModal">
-                <a href="#" class="btn btn-success btn-icon-split">
-                    <span class="icon text-white-50">
-                        <i class="fas fa-flag"></i>
-                    </span>
-                    <span class="text">Müşteri Ekle</span>
-                </a>
-            </div>
+    <div class="card-group" >
+        <div data-toggle="modal" data-target="#customerModal">
+            <a href="#" class="btn btn-success btn-icon-split">
+                <span class="icon text-white-50">
+                    <i class="fas fa-flag"></i>
+                </span>
+                <span class="text">Müşteri Ekle</span>
+            </a>
+        </div>
+        <div>
+            <a id="btnDeleteCustomer" class="btn btn-danger btn-icon-split">
+                <span class="icon text-white-50">
+                    <i class="fas fa-flag"></i>
+                </span>
+                <span class="text">Sil</span>
+            </a>
+        </div>
+        
+        
+    </div>
             <!--Customer Table Here-->
 <div class="card shadow mb-4">
                 <div class="card-header py-3">
@@ -46,12 +58,7 @@
                 </div>
             </div>
     <div>
-        <a id="btnDeleteCustomer" class="btn btn-danger btn-icon-split">
-            <span class="icon text-white-50">
-                <i class="fas fa-flag"></i>
-            </span>
-            <span class="text">Sil</span>
-        </a>
+       
     </div>
         </div>
 <!--AddCustomer Modal-->
@@ -98,10 +105,9 @@
                         $('<td>').text(item.CustomerSurname),
                         $('<td>').text(item.CustomerAddress),
                         $('<td>').text(item.CustomerPhone),
-                        $('<td>').text(item.RegistrationDate)
+                        $('<td>').text(new Date(parseInt(item.RegistrationDate.substr(6))).toLocaleDateString())
                     ).attr("customerID",item.CustomerID).appendTo("#dataTable"); //.appendTo('#records_table');
                     
-                    console.log($tr.html());
                 });
             }
         })
@@ -134,11 +140,12 @@
                 dataType: "json",
                 data: { "id": this.parentElement.parentElement.getAttribute("customerid") },
                 success: function () {
-                    $("tbody > tr").remove();
-                    createCustomerTable();
+                    
                 }
             });
         });
+        $("tbody > tr").remove();
+        createCustomerTable();
     });
 
 </script>

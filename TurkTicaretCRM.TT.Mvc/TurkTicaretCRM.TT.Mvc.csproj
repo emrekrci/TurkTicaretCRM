@@ -1703,6 +1703,8 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\DebitManageController.cs" />
+    <Compile Include="Controllers\DebitTypeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1883,6 +1885,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Customer\CustomerManage.cshtml" />
+    <Content Include="Views\DebitType\DebitTypeManage.cshtml" />
+    <Content Include="Views\DebitManage\DebitManage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
