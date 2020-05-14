@@ -7,18 +7,18 @@ namespace TurkTicaretCRM.TT.DataAccess.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class DebitActivity : IMigrationMetadata
+    public sealed partial class CustomerDebitUp : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(DebitActivity));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CustomerDebitUp));
         
         string IMigrationMetadata.Id
         {
-            get { return "201912051958325_DebitActivity"; }
+            get { return "202005141819062_CustomerDebitUp"; }
         }
         
         string IMigrationMetadata.Source
         {
-            get { return Resources.GetString("Source"); }
+            get { return null; }
         }
         
         string IMigrationMetadata.Target

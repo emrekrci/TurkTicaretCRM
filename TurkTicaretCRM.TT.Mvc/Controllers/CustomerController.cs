@@ -26,6 +26,14 @@ namespace TurkTicaretCRM.TT.Mvc.Controllers
             return View();
         }
 
+        [HttpGet]
+        public ActionResult CustomerProfile(string id)
+        {
+            Customer result = _customerService.GetById(int.Parse(id));
+            ViewData.Add("Customer", result);
+            return View();
+        }
+
         public ActionResult GetAllCustomers()
         {
             var result = _customerService.GetAll();
@@ -42,11 +50,9 @@ namespace TurkTicaretCRM.TT.Mvc.Controllers
         [HttpPost]
         public ActionResult DeleteCustomer(string id)
         {
-            
-                var result = _customerService.DeleteById(int.Parse(id));
-                return Json(result);
-            
-            
+            var result = _customerService.DeleteById(int.Parse(id));
+            return Json(result);
         }
+
     }
 }

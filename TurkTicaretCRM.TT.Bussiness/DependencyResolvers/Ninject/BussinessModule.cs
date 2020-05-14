@@ -22,6 +22,10 @@ namespace TurkTicaretCRM.TT.Bussiness.DependencyResolvers.Ninject
             Bind<ICustomerDal>().To<EfCustomerDal>().InSingletonScope();
             Bind<IDebitService>().To<DebitManager>().InSingletonScope();
             Bind<IDebitDal>().To<EfDebitDal>().InSingletonScope();
+            Bind<IDebitActivityDal>().To<EfDebitActivityDal>().InSingletonScope();
+            Bind<IDebitActivityService>().To<DebitActivityManager>().InSingletonScope();
+            Bind<ICustomerDebitService>().To<CustomerDebitManager>().InSingletonScope();
+            Bind<ICustomerDebitDal>().To<EfCustomerDebitDal>().InSingletonScope();
 
             Bind(typeof(IQueryableRepository<>)).To(typeof(EfQueryableRepository<>));
             Bind<DbContext>().To<TTContext>();

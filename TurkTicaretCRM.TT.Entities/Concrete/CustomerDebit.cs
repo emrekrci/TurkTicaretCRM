@@ -16,6 +16,7 @@ namespace TurkTicaretCRM.TT.Entities.Concrete
         public virtual int  DebitID { get; set; }
         public Customer Customer { get; set; }
         public Debit Debit { get; set; }
+        public string DebitReason { get; set; }
         public int DebitTotal { get; set; }
         public bool CustomerDebitStatus { get; set; }
         public DateTime RegistrationDate { get; set; }

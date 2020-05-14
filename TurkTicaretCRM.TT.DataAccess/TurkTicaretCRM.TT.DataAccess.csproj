@@ -5,18 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\201912042211236_CustmerDebitUpdate.cs" />
-    <Compile Remove="Migrations\201912051958325_DebitActivity.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201912042211236_CustmerDebitUpdate.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912051958325_DebitActivity.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\TurkTicaretCRM.Core\TurkTicaretCRM.Core.csproj" />
     <ProjectReference Include="..\TurkTicaretCRM.TT.Entities\TurkTicaretCRM.TT.Entities.csproj" />
   </ItemGroup>

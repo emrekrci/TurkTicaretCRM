@@ -1887,6 +1887,7 @@
     <Content Include="Views\Customer\CustomerManage.cshtml" />
     <Content Include="Views\DebitType\DebitTypeManage.cshtml" />
     <Content Include="Views\DebitManage\DebitManage.cshtml" />
+    <Content Include="Views\Customer\CustomerProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

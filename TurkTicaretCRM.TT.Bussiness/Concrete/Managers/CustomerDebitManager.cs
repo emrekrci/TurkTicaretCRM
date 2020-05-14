@@ -16,9 +16,36 @@ namespace TurkTicaretCRM.TT.Bussiness.Concrete.Managers
         {
             _customerDebitDal = customerDebitsDal;
         }
+
+        public CustomerDebit Add(CustomerDebit customerDebir)
+        {
+            return _customerDebitDal.Add(customerDebir);
+        }
+
         public CustomerDebit GetById(int id)
         {
             return _customerDebitDal.Get(x => x.CustomerDebitID == id);
         }
+
+        public List<CustomerDebit> GetDebitsByCustomerId(int id)
+        {
+            return _customerDebitDal.GetList(x => x.CustomerID == id);
+        }
+
+        public CustomerDebit UpdateWithActivity(DebitActivity activity)
+        {
+            var customerDebit = _customerDebitDal.Get(x => x.CustomerDebitID == activity.CustomerDebitID);
+            customerDebit.DebitTotal = customerDebit.DebitTotal - activity.DiscountTotal;
+            if (customerDebit.DebitTotal == 0)
+            {
+                customerDebit.CustomerDebitStatus = false;
+            }
+            else if (customerDebit.DebitTotal < 0) {
+                throw new Exception("Toplam kalan borçtan fazla aktivite girilmez");
+            }
+            customerDebit.UpdateDate = DateTime.Now;
+            return _customerDebitDal.Update(customerDebit);
+        }
+
     }
 }

@@ -27,36 +27,29 @@
     </div>
             <!--Customer Table Here-->
 <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Müşteriler Tablosu</h6>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
-                        
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <table class="table table-bordered dataTable" id="dataTable" width="50%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                                        <thead>
-                                            <tr role="row">
-                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 38px;">Seç</th>
-                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 68px;">İsim</th>
-                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 93px;">Soyisim</th>
-                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 52px;">Adres</th>
-                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 31px;">Telefon</th>
-                                                <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 68px;">Kayıt Tarihi</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+   <div class="card-header py-3">
+       <h6 class="m-0 font-weight-bold text-primary">Müşteriler Tablosu</h6>
+   </div>
+   <div class="card-body">
+       <div class="table-responsive" style="overflow:auto; height:auto; ">
+           
+                       <table class="table table-hover" id="dataTable" width="50%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                           <thead>
+                               <tr role="row">
+                                   <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 38px;">Seç</th>
+                                   <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 68px;">İsim</th>
+                                   <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 93px;">Soyisim</th>
+                                   <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 52px;">Adres</th>
+                                   <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 31px;">Telefon</th>
+                                   <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 68px;">Kayıt Tarihi</th>
+                               </tr>
+                           </thead>
+                           <tbody>
+                           </tbody>
+                       </table>
+       </div>
+   </div>
+</div>
     <div>
        
     </div>
@@ -93,13 +86,18 @@
     });
 
     function createCustomerTable() {
+        $("tbody > tr").remove();
         $.ajax({
             url: "@Url.Action("GetAllCustomers","Customer")",
             type: "GET",
             dataType: "json",
             success: function (data) {
                 $.each(data, function (i, item) {
-                    var $tr = $('<tr>').append(
+                    var $tr = $('<tr>').click(function (event) {
+            if (event.target.type !== 'checkbox') {
+                 $(':checkbox', this).trigger('click');
+            }
+        }).append(
                         $('<td>').html('<input type="checkbox">'),
                         $('<td>').text(item.CustomerName),
                         $('<td>').text(item.CustomerSurname),
@@ -114,6 +112,7 @@
     }
 
     $("#btnAddCustomer").on("click", function () {
+        
         $.ajax({
             url: "@Url.Action("AddCustomer","Customer")",
             type: "POST",
@@ -126,10 +125,11 @@
                 CustomerMail: $("#inputCustomerEmail").val()
             },
             success: function (data) {
-                 $("tbody > tr").remove();
+                $("tbody > tr").remove();
                 createCustomerTable();
             }
         });
+        $('.form-group > input').val('');
     });
 
     $("#btnDeleteCustomer").on("click", function () {
@@ -140,12 +140,16 @@
                 dataType: "json",
                 data: { "id": this.parentElement.parentElement.getAttribute("customerid") },
                 success: function () {
-                    
+                    $("tbody > tr").remove();
+                    createCustomerTable();
                 }
             });
         });
-        $("tbody > tr").remove();
-        createCustomerTable();
     });
 
+    $('.table tr').click(function (event) {
+            if (event.target.type !== 'checkbox') {
+                 $(':checkbox', this).trigger('click');
+            }
+        })
 </script>
